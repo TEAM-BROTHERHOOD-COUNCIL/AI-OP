@@ -20,6 +20,6 @@ The easiest way to deploy this Bot
  ─「 ᴄʀᴇᴅɪᴛs 」─
 </h3>
 
-- <b[HUNTER](https://t.me/HUNTER_IS_BACK)  ➻  [ꜰᴏʀ ᴇᴠᴇʀʏᴛʜɪɴɢ]</b>
+- <b>[HUNTER](https://t.me/HUNTER_IS_BACK)  ➻  [ꜰᴏʀ ᴇᴠᴇʀʏᴛʜɪɴɢ]</b>
 
 ----------------------------------------------------------
