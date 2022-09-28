@@ -1,5 +1,5 @@
 {
-    "name": "HNY-AI",    
+    "name": "AI",    
     "env": {
         "STRING": {
             "description": "Pyrogram String session of your account",
