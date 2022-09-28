@@ -8,11 +8,11 @@ The easiest way to deploy this Bot
  
 ### Reach Me
 
-<p align="center"><a href="https://t.me/BROTHERHOOD_BOTS"> <img src="https://img.shields.io/badge/FIND%20LST-green?style=for-the-badge" width="220" height="38.45"/></a></p>
+<p align="center"><a href="https://t.me/BROTHERHOOD_BOTS"> <img src="https://img.shields.io/badge/FIND%20LIST-green?style=for-the-badge" width="220" height="38.45"/></a></p>
 
 ### Support 
 
-<p align="center"><a href="https://t.me/EAGLE_MAFIA_CLUB"> <img src="https://img.shields.io/badge/MAFIA%20CLUB-black?style=for-the-badge" width="220" height="38.45"/></a></p>
+<p align="center"><a href="https://t.me/EAGLE_MAFIA_CLUB"> <img src="https://img.shields.io/badge/MAFIA%20CLUB-brown?style=for-the-badge" width="220" height="38.45"/></a></p>
 
 <p align="center"><a href="https://t.me/INDIA_UNITED"> <img src="https://img.shields.io/badge/INDIA-UNITED-blue?style=for-the-badge" width="220" height="38.45"/></a></p>
 
