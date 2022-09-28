@@ -9,11 +9,11 @@ import re
 
 API_ID = os.environ.get("API_ID", None) 
 API_HASH = os.environ.get("API_HASH", None) 
-STRING = os.environ.get("STRING", None) 
+BOT_TOKEN = os.environ.get("BOT_TOKEN", None) 
 MONGO_URL = os.environ.get("MONGO_URL", None)
 
 
-bot = Client(STRING, API_ID, API_HASH)
+bot = Client(BOT_TOKEN, API_ID, API_HASH)
 
 
 async def is_admins(chat_id: int):
@@ -27,15 +27,15 @@ async def is_admins(chat_id: int):
 
 @bot.on_message(filters.command("start"))
 async def start(client, message):
-        await message.reply_text("Hi! My name is HNY. I'm an Artificial Intelligence")
+        await message.reply_text("Hi! My name is AVA. I'm an Artificial Intelligence")
 
 
 @bot.on_message(
     filters.command("chatbot off", prefixes=["/", ".", "?", "-"])
     & ~filters.private)
 async def chatbotofd(client, message):
-    vickdb = MongoClient(MONGO_URL)    
-    vick = vickdb["VickDb"]["Vick"]     
+    avadb = MongoClient(MONGO_URL)    
+    ava = avadb["AVADb"]["AVA"]     
     if message.from_user:
         user = message.from_user.id
         chat_id = message.chat.id
@@ -45,20 +45,20 @@ async def chatbotofd(client, message):
            return await message.reply_text(
                 "You are not admin"
             )
-    is_vick = vick.find_one({"chat_id": message.chat.id})
-    if not is_vick:
-        vick.insert_one({"chat_id": message.chat.id})
+    is_ava = ava.find_one({"chat_id": message.chat.id})
+    if not is_ava:
+        ava.insert_one({"chat_id": message.chat.id})
         await message.reply_text(f"Chatbot Disabled!")
-    if is_vick:
+    if is_ava:
         await message.reply_text(f"ChatBot Is Already Disabled")
     
 
 @bot.on_message(
-    filters.command("chatbot on", prefixes=["/", ".", "?", "-"])
+    filters.command("chatbot on", prefixes=["/", ".", "?", "!"])
     & ~filters.private)
 async def chatboton(client, message):
-    vickdb = MongoClient(MONGO_URL)    
-    vick = vickdb["VickDb"]["Vick"]     
+    avadb = MongoClient(MONGO_URL)    
+    ava = avadb["AvaDb"]["Ava"]     
     if message.from_user:
         user = message.from_user.id
         chat_id = message.chat.id
@@ -68,11 +68,11 @@ async def chatboton(client, message):
             return await message.reply_text(
                 "You are not admin"
             )
-    is_vick = vick.find_one({"chat_id": message.chat.id})
-    if not is_vick:           
+    is_ava = ava.find_one({"chat_id": message.chat.id})
+    if not is_ava:           
         await message.reply_text(f"Chatbot Is Already Enabled")
-    if is_vick:
-        vick.delete_one({"chat_id": message.chat.id})
+    if is_ava:
+        ava.delete_one({"chat_id": message.chat.id})
         await message.reply_text(f"ChatBot Is Enable!")
     
 
@@ -91,16 +91,16 @@ async def chatbot(client, message):
     & ~filters.private
     & ~filters.bot,
 )
-async def vickai(client: Client, message: Message):
+async def avaai(client: Client, message: Message):
 
    chatdb = MongoClient(MONGO_URL)
    chatai = chatdb["Word"]["WordDb"]   
 
    if not message.reply_to_message:
-       vickdb = MongoClient(MONGO_URL)
-       vick = vickdb["VickDb"]["Vick"] 
-       is_vick = vick.find_one({"chat_id": message.chat.id})
-       if not is_vick:
+       avadb = MongoClient(MONGO_URL)
+       ava = avadb["AvaDb"]["Ava"] 
+       is_ava = ava.find_one({"chat_id": message.chat.id})
+       if not is_ava:
            await bot.send_chat_action(message.chat.id, "typing")
            K = []  
            is_chat = chatai.find({"word": message.text})  
@@ -117,13 +117,13 @@ async def vickai(client: Client, message: Message):
                    await message.reply_text(f"{hey}")
    
    if message.reply_to_message:  
-       vickdb = MongoClient(MONGO_URL)
-       vick = vickdb["VickDb"]["Vick"] 
-       is_vick = vick.find_one({"chat_id": message.chat.id})    
+       avadb = MongoClient(MONGO_URL)
+       ava = avadb["AvaDb"]["Ava"] 
+       is_ava = ava.find_one({"chat_id": message.chat.id})    
        getme = await bot.get_me()
        bot_id = getme.id                             
        if message.reply_to_message.from_user.id == bot_id: 
-           if not is_vick:                   
+           if not is_ava:                   
                await bot.send_chat_action(message.chat.id, "typing")
                K = []  
                is_chat = chatai.find({"word": message.text})
@@ -157,16 +157,16 @@ async def vickai(client: Client, message: Message):
     & ~filters.private
     & ~filters.bot,
 )
-async def vickstickerai(client: Client, message: Message):
+async def avastickerai(client: Client, message: Message):
 
    chatdb = MongoClient(MONGO_URL)
    chatai = chatdb["Word"]["WordDb"]   
 
    if not message.reply_to_message:
-       vickdb = MongoClient(MONGO_URL)
-       vick = vickdb["VickDb"]["Vick"] 
-       is_vick = vick.find_one({"chat_id": message.chat.id})
-       if not is_vick:
+       avadb = MongoClient(MONGO_URL)
+       ava = avadb["AvaDb"]["Ava"] 
+       is_ava = ava.find_one({"chat_id": message.chat.id})
+       if not is_ava:
            await bot.send_chat_action(message.chat.id, "typing")
            K = []  
            is_chat = chatai.find({"word": message.sticker.file_unique_id})      
@@ -183,13 +183,13 @@ async def vickstickerai(client: Client, message: Message):
                    await message.reply_sticker(f"{hey}")
    
    if message.reply_to_message:
-       vickdb = MongoClient(MONGO_URL)
-       vick = vickdb["VickDb"]["Vick"] 
-       is_vick = vick.find_one({"chat_id": message.chat.id})
+       avadb = MongoClient(MONGO_URL)
+       ava = avadb["AvaDb"]["Ava"] 
+       is_ava = ava.find_one({"chat_id": message.chat.id})
        getme = await bot.get_me()
        bot_id = getme.id
        if message.reply_to_message.from_user.id == bot_id: 
-           if not is_vick:                    
+           if not is_ava:                    
                await bot.send_chat_action(message.chat.id, "typing")
                K = []  
                is_chat = chatai.find({"word": message.text})
@@ -224,7 +224,7 @@ async def vickstickerai(client: Client, message: Message):
     & filters.private
     & ~filters.bot,
 )
-async def vickprivate(client: Client, message: Message):
+async def avaprivate(client: Client, message: Message):
 
    chatdb = MongoClient(MONGO_URL)
    chatai = chatdb["Word"]["WordDb"]
@@ -267,7 +267,7 @@ async def vickprivate(client: Client, message: Message):
     & filters.private
     & ~filters.bot,
 )
-async def vickprivatesticker(client: Client, message: Message):
+async def avaprivatesticker(client: Client, message: Message):
 
    chatdb = MongoClient(MONGO_URL)
    chatai = chatdb["Word"]["WordDb"] 
