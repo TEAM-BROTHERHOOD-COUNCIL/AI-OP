@@ -1,8 +1,8 @@
 {
     "name": "AI",    
     "env": {
-        "STRING": {
-            "description": "Pyrogram String session of your account",
+        "TOKEN": {
+            "description": "BOT TOKEN AANE DO GUYZZZZZZ",
             "required": true
         },        
         "MONGO_URL": {
